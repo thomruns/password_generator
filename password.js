@@ -16,7 +16,6 @@ const data = {
   pwArray: []
 }
 
-
 // generate a random number
 randomNum = (max) => {
   return Math.floor(Math.random()*max);
@@ -54,7 +53,6 @@ clearResults = () => {
   data.pwArray = [];
 };
 
-
 // construct the random password
 constructPW = (lmax, nummax, charmax) => {
   // clear the UI results field
@@ -64,7 +62,6 @@ constructPW = (lmax, nummax, charmax) => {
   let ucLettersPresent = false;
   let numPresent = false;
 
-  
   for(let i = 0; i <= (pwLength.value - 1); i++) {
     let iterator = randOrder();
     // console.log(`iterator: ${iterator}`);
@@ -83,15 +80,9 @@ constructPW = (lmax, nummax, charmax) => {
     }
   }
 
-
   if( specCharsPresent && lcLettersPresent && ucLettersPresent && numPresent ) {
     let newPWord = data.pwArray.join('');
     return newPWord;
-  } else {
-    console.log('special characters:', specCharsPresent);
-    console.log('lowercase:', lcLettersPresent);
-    console.log('uppercase:', ucLettersPresent);
-    console.log('numbers:', numPresent);
   }
 }
 
@@ -116,5 +107,3 @@ button.addEventListener('click', () => {
     results.textContent = 'Sorry...please try again!';
   }
 });
-
-

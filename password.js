@@ -8,6 +8,8 @@ let button = document.querySelector('button');
 let results = document.querySelector('.results');
 let pwLength = document.querySelector('#pw-length');
 
+// the letter O has been omitted from arrays containing letters to avoid confusion with zero
+// the specChars array should always contain 8 members
 const data = {
   ucL: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z'],
   lcL: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','p','q','r','s','t','u','v','w','x','y','z'],

@@ -11,6 +11,7 @@ body {
   text-align: center;
   width: 500px;
   margin: 20px auto;
+  border-radius: 10px;
 }
 
 h1 {
@@ -65,4 +66,13 @@ button:active {
 .error {
   color: red;
   background: rgba(206, 38, 52, 0.2);
+}
+
+footer {
+  color: #555;
+  font-size: .7em;
+  font-style: italic;
+  background: rgba(189, 133, 206, 0.575);
+  padding: 20px;
+  margin-top: 25px;
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Strong Password Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Random Password Generator</h1>
+  <p>Generate a strong password that contains a random mixture of upper and lower case letters, numbers, and one or more special characters. Any length password can be generated, but we suggest <strong>AT LEAST</strong> an 8-character minimum. <em>The more characters, the stronger your password will be!</em> Simply enter the number of characters you wish your password to contain, then click the button.</p>
+  <p><strong>PLEASE NOTE:</strong> Not every attempt to generate a password will be successful.<br>If you get an error message, simply click the button again. Several attempts may be required. The more characters you choose, the less likely you are to encounter an error. If you do not like the generated password, simply click again until you get one you like.</p>
+  <div class="container">
+    <form>
+        <label for="pw-length">What length password do you want? (min 8 characters)</label>
+        <input type="number" id="pw-length" name="pw-length" value="8">
+    </form>
+    <div class="password">
+      <p class="results">Your password will appear here</p>
+    </div> 
+    <button id="pword">Generate a random password</button>
+  </div>
+ 
+  <p>Check the strength of your password here: <a href="https://howsecureismypassword.net/" target="blank">How Secure is my Password</a></p>
+  <script src="password.js"></script>
+</body>
+</html>

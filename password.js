@@ -8,13 +8,13 @@ let button = document.querySelector('button');
 let results = document.querySelector('.results');
 let pwLength = document.querySelector('#pw-length');
 
-const ucLetters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z'];
-const lcLetters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','p','q','r','s','t','u','v','w','x','y','z'];
-const specChars = ['!','?','>','^','*','$','&','#'];
-
-const numbers = [0,1,2,3,4,5,6,7,8,9];
-
-let pwArray = [];
+const data = {
+  ucL: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z'],
+  lcL: ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','p','q','r','s','t','u','v','w','x','y','z'],
+  specChars: ['!','?','>','^','*','$','&','#'],
+  nums: [0,1,2,3,4,5,6,7,8,9],
+  pwArray: []
+}
 
 
 // generate a random number
@@ -26,7 +26,7 @@ const randomULetter = (max) => {
   // pick a random number up to a max number
   let ranNum = randomNum(max);
   // pick array member corresponding to that index number
-  let ranULet = ucLetters[ranNum];
+  let ranULet = data.ucL[ranNum];
   // return that array member
   return ranULet;
 }
@@ -34,24 +34,24 @@ const randomULetter = (max) => {
 // generate a random lowercase letter
 const randomLLetter = (max) => {
   let ranNum = randomNum(max);
-  let ranLLet = lcLetters[ranNum];
+  let ranLLet = data.lcL[ranNum];
   return ranLLet;
 }
 
 // generate a random special character
 const randomSpecChar = (max) => {
   let ranNum = randomNum(max);
-  let ranChar = specChars[ranNum];
+  let ranChar = data.specChars[ranNum];
   return ranChar;
 }
 
 // create a random order number
-const randOrder = () => Math.floor(Math.random()*specChars.length);
+const randOrder = () => Math.floor(Math.random()*data.specChars.length);
 
 // clear results
 clearResults = () => {
   results.textContent = '';
-  pwArray = [];
+  data.pwArray = [];
 };
 
 
@@ -69,23 +69,23 @@ constructPW = (lmax, nummax, charmax) => {
     let iterator = randOrder();
     // console.log(`iterator: ${iterator}`);
     if(iterator === 0 || iterator === 4) {
-      pwArray.push(randomLLetter(lmax));
+      data.pwArray.push(randomLLetter(lmax));
       lcLettersPresent = true;
     } else if (iterator === 1 || iterator === 5) {
-      pwArray.push(randomNum(nummax));
+      data.pwArray.push(randomNum(nummax));
       numPresent = true;
     } else if (iterator === 2 || iterator === 6) {
-      pwArray.push(randomSpecChar(charmax));
+      data.pwArray.push(randomSpecChar(charmax));
       specCharsPresent = true;
     } else if (iterator === 3 || iterator === 7) {
-      pwArray.push(randomULetter(lmax));
+      data.pwArray.push(randomULetter(lmax));
       ucLettersPresent = true;
     }
   }
 
 
   if( specCharsPresent && lcLettersPresent && ucLettersPresent && numPresent ) {
-    let newPWord = pwArray.join('');
+    let newPWord = data.pwArray.join('');
     return newPWord;
   } else {
     console.log('special characters:', specCharsPresent);
@@ -97,9 +97,9 @@ constructPW = (lmax, nummax, charmax) => {
 
 // add button click event listener
 button.addEventListener('click', () => {
-  const l = ucLetters.length;
-  const n = numbers.length;
-  const c = specChars.length;
+  const l = data.ucL.length;
+  const n = data.nums.length;
+  const c = data.specChars.length;
 
   let newPW = constructPW(l, n, c);
   if(newPW) {

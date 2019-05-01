@@ -19,7 +19,7 @@ const data = {
 }
 
 // generate a random number
-randomNum = (max) => {
+const randomNum = (max) => {
   return Math.floor(Math.random()*max);
 }
 // generate a random uppercase letter
